@@ -1,0 +1,24 @@
+﻿@model List<Aula1AspNetMVC.Models.Cliente>
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista</h2>
+
+@foreach (var cliente in Model)
+{
+    <li>@Html.DisplayFor(model => cliente.Nome) @Html.DisplayFor(model => cliente.Sobrenome)</li>
+}
+
+@*//é necessario criar essa section pois o script jquery (na _layout) esta abaixo do script criado nessa view,
+    por tanto ainda n existiria jquery no momento de chamar esse script*@ 
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("li").click(function() {
+                $(this).hide();
+            });
+        });
+    </script>
+}
